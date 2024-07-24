@@ -3,7 +3,7 @@
         <title>sl pfp previewer</title>
     </head>
     <body>
-        <canvas id="preview" width="250" height="250"></canvas> 
+        <canvas id="preview" width="250" height="250"></canvas> <button id="newtab">open pfp in new tab</button>
         <div style="display:flex">
             <div id="icons" style="max-height:80%; width:50%; overflow-y:scroll; margin-top: 10px"></div>
             <div id="frames" style="max-height:80%; width:50%; overflow-y:scroll; margin-top: 10px"></div>
@@ -59,6 +59,10 @@
                 } 
 
                 updateIcon(currentFrame, currentIcon)
+
+                document.getElementById("newtab").onclick = () => {
+                    window.open(canvas.toDataURL("image/png"))
+                }
             })()
         </script>
     </body>
