@@ -1,0 +1,3 @@
+[submodule "pfp-previewer/assets"]
+	path = pfp-previewer/assets
+	url = https://github.com/ICanPressButtons/SLProfileAssets.git
