@@ -33,13 +33,19 @@
 
                 for (let frame of frameList) {
                     let image = new Image(100, 100)
-                    image.src = "assets/frames/"+frame+".png"
+                    image.src = "assets/profile/frames/"+frame+".png"
+                    if (frame == -1) {
+                        image.src = "assets/blank.png"
+                    }
                     let element = frameSelect.appendChild(image)
                     element.onclick = () => {currentFrame = frame; updateIcon()}
                 }
                 for (let icon of iconList) {
                     let image = new Image(100, 100)
-                    image.src = "assets/icons/"+icon+".png"
+                    image.src = "assets/profile/icons/"+icon+".png"
+                    if (image == -1) {
+                        image.src = "assets/blank.png"
+                    }
                     let element = iconSelect.appendChild(image)
                     element.onclick = () => {currentIcon = icon; updateIcon()}
                 }
@@ -47,10 +53,16 @@
                 const updateIcon = async () => {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     let frameImg = new Image(250, 250)
-                    frameImg.src = "assets/frames/"+currentFrame+".png"
+                    frameImg.src = "assets/profile/frames/"+currentFrame+".png"
+                    if (currentFrame == -1) {
+                        frameImg.src = "assets/blank.png"
+                    }
                     frameImg.onload = () => {
                         let iconImg = new Image(250, 250)
-                        iconImg.src = "assets/icons/"+currentIcon+".png"
+                        iconImg.src = "assets/profile/icons/"+currentIcon+".png"
+                        if (currentIcon == -1) {
+                            iconImg.src = "assets/blank.png"
+                        }
                         iconImg.onload = () => {
                             ctx.drawImage(iconImg, 0, 0)
                             ctx.drawImage(frameImg, 0, 0)
