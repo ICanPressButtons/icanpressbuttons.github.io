@@ -22,6 +22,7 @@
                 assets.frames = [-1, ...assets.frames]
                 assets.icons = [-1, ...assets.icons]
 
+                const smallIcons = ["1000094.png"]
 
                 const frameSelect = document.getElementById("frames")
                 const iconSelect = document.getElementById("icons")
@@ -36,6 +37,7 @@
                 window.onresize()
 
                 for (let frame of assets.frames) {
+                    if (frame == '0.png') continue
                     let image = new Image(100, 100)
                     image.src = "assets/profile/frames/"+frame
                     if (frame == -1) {
@@ -68,7 +70,12 @@
                             iconImg.src = "assets/blank.png"
                         }
                         iconImg.onload = () => {
-                            ctx.drawImage(iconImg, 0, 0)
+                            if (smallIcons.includes(currentFrame)) {
+                                ctx.drawImage(iconImg, 15, 15, 220, 220)
+                            }
+                            else {
+                                ctx.drawImage(iconImg, 0, 0)
+                            }
                             ctx.drawImage(frameImg, 0, 0)
                         }
                     }
