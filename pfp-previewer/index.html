@@ -22,7 +22,7 @@
                 assets.frames = [-1, ...assets.frames]
                 assets.icons = [-1, ...assets.icons]
 
-                const smallIcons = ["1000094.png","1000095.png","1000096.png","1000097.png"]
+                const smallIcon = 1000094
 
                 const frameSelect = document.getElementById("frames")
                 const iconSelect = document.getElementById("icons")
@@ -70,7 +70,7 @@
                             iconImg.src = "assets/blank.png"
                         }
                         iconImg.onload = () => {
-                            if (smallIcons.includes(currentFrame)) {
+                            if (smallIcon <= JSON.parse(currentFrame.split(".png")[0])) {
                                 ctx.drawImage(iconImg, 15, 15, 220, 220)
                             }
                             else {
