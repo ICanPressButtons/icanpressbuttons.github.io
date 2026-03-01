@@ -70,7 +70,7 @@
                             iconImg.src = "assets/blank.png"
                         }
                         iconImg.onload = () => {
-                            if (smallIcon <= JSON.parse(currentFrame.split(".png")[0])) {
+                            if (currentFrame != -1 && smallIcon <= JSON.parse(currentFrame.split(".png")[0])) {
                                 ctx.drawImage(iconImg, 15, 15, 220, 220)
                             }
                             else {
